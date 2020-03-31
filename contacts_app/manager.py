@@ -1,4 +1,4 @@
-import contacts.db as contacts
+import contacts_app.db as contacts
 
 
 def _print_contact(contact, full):
@@ -24,7 +24,7 @@ def list_contacts(full=True):
     for num, contact in enumerate(contacts_data, start=1):
         if full: print("Contact # " + str(num))
         _print_contact(contact, full)
-    print("--------END----------")
+    print("---------END-----------")
 
 
 def _input_data():
@@ -75,8 +75,7 @@ def show_contact(name):
 
 
 def get_contact_amount():
-    amount = len(contacts.get_all_rows())
-    print("Total contacts: ", amount)
+    print(f"Total contacts: {len(contacts.get_all_rows())}")
 
 
 def show_help():
@@ -84,9 +83,9 @@ def show_help():
     Help of contact manager:
     :q - to quit
     :h - help info
-    :ls - list contacts
-    :list - list full contacts
-    :add - add contacts
+    :ls - list contacts compact
+    :list - list contacts full
+    :add - add contact
     :rm [name] - remove contact
     :show [name] - show contact
     :edit [name] - remove contact
@@ -94,7 +93,7 @@ def show_help():
 
 
 def main():
-    print("Contact manager up and running!")
+    print("Contact manager up and running! Use :h to see help info.")
     get_contact_amount()
 
     while True:
@@ -106,8 +105,9 @@ def main():
 
         if command == ":q":
             print("Bye bye now...")
+            contacts.close_connection()
             break
-        elif command == ":h":
+        elif command == ":h" or command == ":help":
             show_help()
         elif command == ":ls":
             list_contacts(full=False)
@@ -124,7 +124,7 @@ def main():
         elif ":show" in command:
             show_contact(get_name(command))
         else:
-            print("No such command. Try :h to see commands.")
+            print(f"No command: {command}. Try :h to see commands.")
 
 
 if __name__ == "__main__":
