@@ -5,6 +5,7 @@ cursor = connection.cursor()
 sql = f"INSERT INTO {config.TABLE} (name, email, phone, address) VALUES (?, ?, ?, ?)"
 data = ("Vasiliy", "vasiliy@mail.ru", "+79160001234", "Moscow")
 
+# We separate data from SQL statement as recommended
 cursor.execute(sql, data)
 
 # Commit can be called only from connection!

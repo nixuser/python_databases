@@ -9,6 +9,10 @@ Libraries:
 - https://docs.python.org/3/library/sqlite3.html
 - https://pypi.org/project/mysql-connector-python/
 
+## Терминология
+
+CRUD (CREATE, READ, UPDATE, DELETE) - Базовый набор операций которые необходимы для работы с БД
+
 ## Основы работы
 
 1) Create connection.

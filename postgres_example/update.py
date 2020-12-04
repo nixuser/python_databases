@@ -1,13 +1,13 @@
 from postgres_example.config import connection, cursor, config
 
-# Выполняем запрос
+# Executing update
 cursor.execute(f"UPDATE {config.TABLE} SET name = %s WHERE name = %s", ("TEST", "Vasya"))
 connection.commit()
 
-# Изменяем таблицу
+# Altering table
 cursor.execute(f"ALTER TABLE {config.TABLE} DROP address")
 connection.commit()
 
-# Закрываемся
+# Close connection
 cursor.close()
 connection.close()

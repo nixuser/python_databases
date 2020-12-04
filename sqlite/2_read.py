@@ -1,12 +1,15 @@
-import sqlite3
+from sqlite.config import connection, config
 
-connection = sqlite3.connect("data.sqlite")
 cursor = connection.cursor()
 
-sql = "SELECT * FROM contacts_app WHERE name = 'Vasiliy'"
+sql = f"SELECT * FROM {config.TABLE} WHERE name = ?"
 
-request_result = cursor.execute(sql)
+request_result = cursor.execute(sql, ('Vasiliy',))
 
+# Fetch results as list
+print(request_result.fetchall())
+
+# Wont work if data was fetched
 for el in request_result:
     print(el)
 

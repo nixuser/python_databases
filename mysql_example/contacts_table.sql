@@ -4,5 +4,6 @@ CREATE TABLE IF NOT EXISTS contacts
     name VARCHAR(255) UNIQUE NOT NULL,
     email VARCHAR(255),
     phone VARCHAR(255) NOT NULL,
-    address VARCHAR(255)
+    address VARCHAR(255),
+    score INTEGER
 );

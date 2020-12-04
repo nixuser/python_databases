@@ -1,8 +1,9 @@
-from postgres_example.config import connection, cursor
+from postgres_example.config import connection, cursor, config
 
 # Добавление одного кортежа данных
-sql = "INSERT INTO contacts_app (name, phone, email, adress) VALUES (%s, %s, %s, %s)"
+sql = f"INSERT INTO {config.TABLE} (name, phone, email, adress) VALUES (%s, %s, %s, %s)"
 values = ('Test1', '8999999', 'a@mail.ru', 'Moscow')
+
 cursor.execute(sql, values)
 connection.commit()
 

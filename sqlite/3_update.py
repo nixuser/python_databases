@@ -1,10 +1,10 @@
-import sqlite3
+from sqlite.config import connection, config
 
-connection = sqlite3.connect("data.sqlite")
+
 cursor = connection.cursor()
 
-# Bad example
-sql = "UPDATE contacts_app SET address = 'TEST' WHERE name = 'Vasiliy'"
+# Bad example because hardcoded data!!!
+sql = f"UPDATE {config.TABLE} SET address = 'TEST' WHERE name = 'Vasiliy'"
 
 cursor.execute(sql)
 connection.commit()

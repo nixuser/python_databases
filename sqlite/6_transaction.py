@@ -1,19 +1,20 @@
 import sqlite3
 
-con = sqlite3.connect("db.sqlite")
+con = sqlite3.connect("contacts_db.sqlite")
 
-DB = 'contacts_app'
+DB = 'contacts'
 
-sql_1 = "INSERT INTO {DB} (name, email) VALUES (?, ?)".format(DB=DB)
-sql_2 = "UPDATE {DB} SET nickname = ? WHERE email = ?".format(DB=DB)
-sql_3 = "DELETE FROM {DB} WHERE nickname = ?".format(DB=DB)
+sql_1 = f"INSERT INTO {DB} (name, email, phone) VALUES (?, ?, ?)"
+sql_2 = f"UPDATE {DB} SET name = ? WHERE email = ?"
+sql_3 = f"DELETE FROM {DB} WHERE name = ?"
 
 name = 'SuperUser'
 new_name = 'NEW_USER'
 email = 'superemail@email.ru'
 address = 'California'
 
-con.execute(sql_1, (name, email))
+
+con.execute(sql_1, (name, email, "989898"))
 con.execute(sql_2, (new_name, email))
 con.commit()
 con.rollback()
