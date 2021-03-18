@@ -3,12 +3,12 @@ from sqlite.config import connection, config
 
 cursor = connection.cursor()
 
-# cursor.execute("DROP TABLE contacts_app;")
-# cursor.execute(f"DROP TABLE IF EXISTS {config.TABLE};")
+# Delete table
+# cursor.execute("DROP TABLE contacts2")
+# cursor.execute(f"DROP TABLE IF EXISTS contacts2")
 
 sql = f"DELETE FROM {config.TABLE} WHERE name = ?"
-
-cursor.execute(sql, ("Vasiliy",))
+cursor.execute(sql, ("Vasiliy4",))
 connection.commit()
 
 connection.close()

@@ -2,22 +2,24 @@ from sqlalchemy import Table
 from sqlalchemy import MetaData, create_engine
 from sqlalchemy import select, insert
 
+from sqlite.config import config
+
 metadata = MetaData()
 
 # First we need to create the table
-engine = create_engine('sqlite:///../sqlite/contacts_db.sqlite')
+engine = create_engine(f'sqlite:///../sqlite/{config.DB_NAME}')
 
-contacts = Table('contacts', metadata, autoload=True, autoload_with=engine)
-
+# Getting keys from table
+contacts = Table(config.TABLE, metadata, autoload=True, autoload_with=engine)
 print(contacts.columns.keys())
 
-# Prepare the request
+# # Prepare the request
 s = select([contacts]).limit(2)
 
 # Getting rows
 rows = engine.execute(s).fetchall()
 
-# Iterate over rows
+# # Iterate over rows
 for row in rows:
     print(row)
 

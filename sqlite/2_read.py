@@ -10,7 +10,7 @@ request_result = cursor.execute(sql, ('Vasiliy',))
 print(request_result.fetchall())
 
 # Wont work if data was fetched
-for el in request_result:
-    print(el)
+for row in request_result:
+    print(row)
 
 connection.close()

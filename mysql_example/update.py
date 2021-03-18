@@ -6,8 +6,8 @@ cursor.execute(f"UPDATE {config.TABLE} SET name = %s WHERE name = %s", ("TEST", 
 connection.commit()
 
 # Altering given table
-# cursor.execute(f"ALTER TABLE {config.TABLE} DROP address")
-# connection.commit()
+cursor.execute(f"ALTER TABLE {config.TABLE} DROP address")
+connection.commit()
 
 # Closing cursor and connection
 cursor.close()

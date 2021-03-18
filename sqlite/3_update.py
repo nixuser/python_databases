@@ -4,9 +4,9 @@ from sqlite.config import connection, config
 cursor = connection.cursor()
 
 # Bad example because hardcoded data!!!
-sql = f"UPDATE {config.TABLE} SET address = 'TEST' WHERE name = 'Vasiliy'"
+sql = f"UPDATE {config.TABLE} SET email = 'TEST' WHERE name = ?"
 
-cursor.execute(sql)
+cursor.execute(sql, ("Vasiliy",))
 connection.commit()
 
 sql = "UPDATE contacts_app SET name = ? WHERE name = ?"

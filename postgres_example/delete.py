@@ -1,7 +1,9 @@
 from postgres_example.config import connection, cursor
 
+TABLE = "contacts"
+
 # Execute delete data query
-cursor.execute("DELETE FROM contacts_app WHERE name='Test'")
+cursor.execute(f"DELETE FROM {TABLE} WHERE name='Test'")
 connection.commit()
 
 # CLosing connections

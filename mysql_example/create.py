@@ -1,12 +1,25 @@
-from mysql_example.config import config
 from mysql_example.config import connection, cursor
 
-# Creating table inside database using external sql file
-with open("contacts_table.sql", "r") as script:
-    cursor.execute(script.read())
+TABLE = "contacts"
+
+SQL = f"""
+CREATE TABLE IF NOT EXISTS {TABLE}
+(
+    id INT(32) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) UNIQUE NOT NULL,
+    email VARCHAR(255),
+    phone VARCHAR(255) NOT NULL,
+    address VARCHAR(255),
+    score INTEGER
+);
+"""
+
+# Creating table inside database
+cursor.execute(SQL)
+connection.commit()
 
 # Inserting single data entry
-sql = f"INSERT INTO {config.TABLE} (name, phone, email, address) VALUES (%s, %s, %s, %s)"
+sql = f"INSERT INTO {TABLE} (name, phone, email, address) VALUES (%s, %s, %s, %s)"
 values = ("Vasya1", "89009009999", None, "Moscow")
 cursor.execute(sql, values)
 connection.commit()
@@ -19,7 +32,7 @@ values = [
     ("Vasya5", "89009765999", None, "Petropavlovsk"),
 ]
 
-sql = f"INSERT INTO {config.TABLE} (name, phone, email, address) VALUES (%s, %s, %s, %s)"
+sql = f"INSERT INTO {TABLE} (name, phone, email, address) VALUES (%s, %s, %s, %s)"
 cursor.executemany(sql, values)
 connection.commit()
 

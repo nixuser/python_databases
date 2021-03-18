@@ -11,7 +11,7 @@ config = SimpleNamespace(
 # Open connection
 connection = sqlite3.connect(config.DB_NAME)
 
-# Creating table from predefined file
+# # Creating table from predefined file
 connection.cursor().execute(f"""
 CREATE TABLE IF NOT EXISTS {config.TABLE}
 (

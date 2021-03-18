@@ -7,7 +7,7 @@ docker exec -it {CONTAINER_ID} bash
 psql -U postgres
 Enter password: {PASSWORD}
 \list - show databases
-\c {database_name}
+\c {database_name} - connect to db
 
 show databases; - показать БД
 show tables; - показать таблицы
