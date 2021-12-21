@@ -1,7 +1,7 @@
 from postgres_example.config import connection, cursor, config
 
 # Выполняем запрос
-cursor.execute(f"SELECT * FROM {config.TABLE}")
+cursor.execute(f"SELECT * FROM {config.TABLE};")
 
 # Получаем данные в виде кортежей
 for row in cursor.fetchall():

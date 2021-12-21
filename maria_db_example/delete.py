@@ -1,5 +1,5 @@
-from mysql_example.config import config
-from mysql_example.config import connection, cursor
+from maria_db_example.config import config
+from maria_db_example.config import connection, cursor
 
 # Choose database
 cursor.execute(f"USE {config.DB_NAME}")

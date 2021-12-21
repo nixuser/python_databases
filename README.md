@@ -20,7 +20,7 @@ CRUD (CREATE, READ, UPDATE, DELETE) - Базовый набор операций
 ```python
 import sqlite3
 
-connection = sqlite3.connect("simple.sqlite")
+connection = sqlite3.connect("simple.sqlite_example")
 cursor = connection.cursor()
 ```
 

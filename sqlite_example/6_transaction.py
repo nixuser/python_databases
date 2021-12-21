@@ -1,6 +1,6 @@
 import sqlite3
 
-con = sqlite3.connect("contacts_db.sqlite")
+con = sqlite3.connect("contacts_db.sqlite_example")
 
 DB = 'contacts'
 

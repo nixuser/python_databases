@@ -1,7 +1,7 @@
 from postgres_example.config import connection, cursor, config
 
 # Executing update
-cursor.execute(f"UPDATE {config.TABLE} SET name = %s WHERE name = %s", ("TEST", "Vasya"))
+cursor.execute(f"UPDATE {config.TABLE} SET name = %s WHERE name = %s", ("TEST", "Vasya1"))
 connection.commit()
 
 # Altering table

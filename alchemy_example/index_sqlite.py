@@ -2,7 +2,7 @@ from sqlalchemy import Table
 from sqlalchemy import MetaData, create_engine
 from sqlalchemy import select, insert
 
-from sqlite.config import config
+from sqlite_example.config import config
 
 metadata = MetaData()
 

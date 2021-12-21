@@ -8,9 +8,5 @@ psql -U postgres
 Enter password: {PASSWORD}
 \list - show databases
 \c {database_name} - connect to db
-
-show databases; - показать БД
-show tables; - показать таблицы
-drop database; - удалить БД
-drop table; - удалить таблицу
+\d - show tables
 ```

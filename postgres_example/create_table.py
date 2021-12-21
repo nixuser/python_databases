@@ -12,8 +12,8 @@ CREATE TABLE contacts (
 """
 
 try:
-    with open(SQL.strip(), "r") as script:
-        cursor.execute(script.read())
+    cursor.execute(SQL.strip())
+    cursor.commit()
 except psycopg2.errors.DuplicateTable as e:
     print(e)
 

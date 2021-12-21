@@ -1,16 +1,17 @@
 from sqlalchemy import Table
 from sqlalchemy import MetaData, create_engine
 from sqlalchemy import select, insert, delete
-from mysql_example.config import config
+from maria_db_example.config import config
 
 metadata = MetaData()
+TABLE = "contacts"
 
 # First we need to create the table
 engine = create_engine(
     f'mysql+mysqlconnector://{config.USER}:{config.PASSWORD}@{config.HOST}:{config.PORT}/{config.DB_NAME}'
 )
 
-contacts = Table(config.TABLE, metadata, autoload=True, autoload_with=engine)
+contacts = Table(TABLE, metadata, autoload=True, autoload_with=engine)
 
 print(contacts.columns.keys())
 
@@ -29,9 +30,9 @@ i = insert(contacts).values(name="Test", email="test@mail.ru", phone="1111111111
 engine.execute(i)
 
 # Delete the entry
-ds = delete(contacts).where(contacts.c.name == "Test")
-engine.execute(ds)
+# ds = delete(contacts).where(contacts.c.name == "Test")
+# engine.execute(ds)
 
 # List all data
-for row in engine.execute(select([contacts])).fetchall():
-    print(row)
+# for row in engine.execute(select([contacts])).fetchall():
+#     print(row)

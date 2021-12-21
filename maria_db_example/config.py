@@ -4,7 +4,7 @@ from types import SimpleNamespace
 config = SimpleNamespace(
     DB_NAME='bitnami_opencart',
     TABLE='oc_country',
-    HOST='192.168.1.93',
+    HOST='192.168.0.106',
     PORT='3306',
     USER='bn_opencart',
     PASSWORD='',
@@ -21,7 +21,7 @@ connection = mysql.connector.connect(
 cursor = connection.cursor()
 
 # Switch to created database
-# cursor.execute(f"USE {config.DB_NAME}")
+cursor.execute(f"USE {config.DB_NAME}")
 
 if __name__ == "__main__":
     # Creating database

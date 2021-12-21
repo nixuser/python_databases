@@ -1,5 +1,5 @@
-from mysql_example.config import config
-from mysql_example.config import connection, cursor
+from maria_db_example.config import config
+from maria_db_example.config import connection, cursor
 
 # Executing update query
 cursor.execute(f"UPDATE {config.TABLE} SET name = %s WHERE name = %s", ("TEST", "Vasya1",))

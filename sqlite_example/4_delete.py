@@ -1,5 +1,5 @@
 import sqlite3
-from sqlite.config import connection, config
+from sqlite_example.config import connection, config
 
 cursor = connection.cursor()
 
