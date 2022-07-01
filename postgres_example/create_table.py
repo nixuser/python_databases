@@ -13,7 +13,6 @@ CREATE TABLE contacts (
 
 try:
     cursor.execute(SQL.strip())
-    cursor.commit()
 except psycopg2.errors.DuplicateTable as e:
     print(e)
 

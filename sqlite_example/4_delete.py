@@ -9,6 +9,7 @@ cursor = connection.cursor()
 
 sql = f"DELETE FROM {config.TABLE} WHERE name = ?"
 cursor.execute(sql, ("Vasiliy4",))
+
 connection.commit()
 
 connection.close()

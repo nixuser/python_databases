@@ -8,3 +8,5 @@ try:
     cursor.execute(create_database)
 except psycopg2.errors.DuplicateDatabase as e:
     print(e)
+except psycopg2.OperationalError as e:
+    print(e)
