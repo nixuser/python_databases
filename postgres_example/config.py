@@ -6,7 +6,7 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 config = SimpleNamespace(
     DB_NAME='contacts_db',
     TABLE='contacts',
-    HOST='192.168.0.102',
+    HOST='192.168.0.104',
     PORT='3306',
     USER='postgres',
     PASSWORD='root',

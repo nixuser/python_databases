@@ -1,25 +1,20 @@
-import sqlite3
+from sqlite_example.connect import connection
+from sqlite_example.config import config
 
-con = sqlite3.connect("contacts_db.sqlite_example")
-
-DB = 'contacts'
-
-sql_1 = f"INSERT INTO {DB} (name, email, phone) VALUES (?, ?, ?)"
-sql_2 = f"UPDATE {DB} SET name = ? WHERE email = ?"
-sql_3 = f"DELETE FROM {DB} WHERE name = ?"
+sql_1 = f"INSERT INTO {config.DB_NAME} (name, email, phone) VALUES (?, ?, ?)"
+sql_2 = f"UPDATE {config.DB_NAME} SET name = ? WHERE email = ?"
+sql_3 = f"DELETE FROM {config.DB_NAME} WHERE name = ?"
 
 name = 'SuperUser'
 new_name = 'NEW_USER'
 email = 'superemail@email.ru'
 address = 'California'
 
-
-con.execute(sql_1, (name, email, "989898"))
-con.execute(sql_2, (new_name, email))
-con.commit()
-con.rollback()
-con.execute(sql_3, (name,))
-con.rollback()
-con.commit()
-
-con.close()
+connection.execute(sql_1, (name, email, "989898"))
+connection.execute(sql_2, (new_name, email))
+connection.commit()
+connection.rollback()
+connection.execute(sql_3, (name,))
+connection.rollback()
+connection.commit()
+connection.close()

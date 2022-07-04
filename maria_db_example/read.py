@@ -9,16 +9,16 @@ cursor.execute(f"SELECT * FROM {config.TABLE}")
 for row in cursor.fetchall():
     print(row)
 
-# Getting first entry
-print(cursor.fetchone())
-cursor.reset()
-
-cursor.execute(f"SELECT * FROM {config.TABLE} WHERE name = 'Afghanistan'")
-
-if cursor.fetchall():
-    print("Record exists!")
-else:
-    print("Not exists!")
+# # Getting first entry
+# print(cursor.fetchone())
+# cursor.reset()
+#
+# cursor.execute(f"SELECT * FROM {config.TABLE} WHERE name = 'Afghanistan'")
+#
+# if cursor.fetchall():
+#     print("Record exists!")
+# else:
+#     print("Not exists!")
 
 # Close connection and cursor
 cursor.close()

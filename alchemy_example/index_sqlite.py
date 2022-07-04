@@ -7,7 +7,7 @@ from sqlite_example.config import config
 metadata = MetaData()
 
 # First we need to create the table
-engine = create_engine(f'sqlite:///../sqlite/{config.DB_NAME}')
+engine = create_engine(f'sqlite:///../sqlite_example/{config.DB_NAME}')
 
 # Getting keys from table
 contacts = Table(config.TABLE, metadata, autoload=True, autoload_with=engine)
