@@ -1,6 +1,16 @@
 name: Pylint
 
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version used in example"
+        default: '1.0'
+        type: choice
+        options:
+        - '1.0'
+        - '5.0'
+        - '4.1'
 
 jobs:
   build:
@@ -14,6 +24,10 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
+    - name: Show test parameters
+      run: |
+        echo ${{ matrix.python-version }}
+        echo "${{ matrix.python-version }}"
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
