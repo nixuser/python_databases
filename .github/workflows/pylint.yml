@@ -26,7 +26,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Show test parameters
       run: |
-        if [[ ${{ inputs.version == "1.0" }} ]]; 
+        if [[ ${{ inputs.version }} == "1.0" ]]; 
         then
           echo ${{ inputs.version }}
           echo Python version ${{ matrix.python-version }}
